@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Design Programming 2019</title>
+    <style>
+        /*
+        * note the order of operations
+        */
+
+        /* first set the individual properties */
+        #world2d {
+            margin-left: 5%;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        /* common to all buttons */
+        button {
+            position: relative;
+            margin-left: 12px;
+            width: 100px;
+            height: 50px;
+        }
+
+        /* because we want the canvas below buttons */
+        #canv {
+            position: absolute;
+            margin-top: 25px;
+            margin-left: 50px;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        /* table of data for objects is going to float on top of everything */
+        #floatingDataDiv {
+            /* border: 1px solid grey; */
+            position: absolute;
+            border-width: 1px;
+            top: 15%;
+            left: 10%;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+            overflow: auto;
+            display: none;
+            color: red;
+            opacity: 0.75;
+            z-index: 10;
+        }
+
+        #editDiv {
+            position: absolute;
+            left: 600px;
+            top: 125px;
+            display: none;
+            z-index: 5;
+        }
+
+        /* dynamic elements buttons and tale */
+        #editTable {
+            margin-top: 12px;
+        }
+
+        .dynamicCells {
+            font-size: 12px;
+            background-color: rgba(255, 255, 255, 1.0);
+            color: black;
+            border: 1px solid grey;
+            padding: 10px;
+        }
+
+        /* last function to override previous */
+        button:hover {
+            color: black;
+            background-color: salmon;
+        }
+    </style>
+
+    <!-- load 3.js files beforehand -->
+    <script src="/public/js/libs/three.min.js"></script>
+    <script src="/public/js/libs/OrbitControls.js"></script>
+    <script src="/public/js/libs/stats.min.js"></script>
+
+</head>
+
+<body>
+    {{{body}}}
+</body>
+
+</html>

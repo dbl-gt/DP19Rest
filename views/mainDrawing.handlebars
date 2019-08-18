@@ -1,0 +1,50 @@
+
+
+    <h2 style="margin-left:5%"> (name), (id), Design Programming 2019 </h2>
+    <button class="button" id="world2d" onclick="init2dWorldFunc()"> 2d World </button>
+    <button class="button" id="world3d" onclick="init3dWorldFunc()"> 3d World</button>
+    <button class="button" id="objData" onclick="showObjData()"> Data Objects</button>
+    <button class="button" id="getDB"> <a href="/dbGet">Get from DB </a></button>
+
+    <!--canvas for drawing the objects-->
+    <div class="containerClass" id="containerId">
+        <div class="draw2d" id="draw2dDiv">
+            <Canvas id="canv" width="500px" height="500px"></Canvas>
+        </div>
+        <div class="draw3d" id="draw3dDiv"> </div>
+    </div>
+
+    <!-- place table to right allow add, edit and delete objects -->
+    <div id="editDiv">
+        <!--
+        <button class="button" id="floatbutton" onclick="addFunc()"> Add Object</button>
+        <button class="button" id="updateData" onclick="updateFunc()"> Update Objects</button>
+        -->
+        <table id="editTable"></table>
+        <form action = "/dbSend" method="post">
+            <textarea id="dbDataTA" name="details" style="display:none" required>null</textarea>
+            <button class="button" id="sendDB" display="inline-block">Send to DB </a></button>
+        </form>
+    </div>
+
+    <!-- 
+        load the scripts regarding ui:
+        1. before application
+        2. after the elements have been declared
+    -->
+
+    <!-- store all global variables used in project -->
+    <script src="/public/js/globalVars.js"></script>
+    <!-- Main ffunction to generate the table-->
+    <script src="/public/js/tableFunc.js"></script>
+    <!-- Main data object being drawn and manipulated -->
+    <script src="/public/js/drawObj.js"></script>
+    <!-- handle all button actions -->
+    <script src="/public/js/buttonFunc.js"></script>
+    <!-- drawing functions for canvas 2d -->
+    <script src="/public/js/draw2dFunc.js"></script>
+    <!-- drawing functions for 3d -->
+    <script src="/public/js/draw3dFunc.js"></script>
+
+
+
