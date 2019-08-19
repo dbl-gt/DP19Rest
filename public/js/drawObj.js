@@ -57,15 +57,7 @@ class DrawObj{
     }
 
     getString(){
-        var s=this.name + "," + 
-        this.x + "," + 
-        this.y + ","+
-        this.length + ","+
-        this.width + ","+ 
-        this.height + ","+ 
-        this.re + "," +
-        this.gr +","+ 
-        this.bl +";";
+        var s=this.name+","+this.x+","+this.y+","+this.length+","+this.width+","+this.height+","+this.re+","+this.gr+","+this.bl+";";
         return s;
     }
     gen3dMesh(){

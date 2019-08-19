@@ -16,9 +16,10 @@
             margin-left: 5%;
         }
 
-        a{
+        a {
             text-decoration: none;
         }
+
         /* common to all buttons */
         button {
             position: relative;
@@ -34,6 +35,15 @@
             margin-left: 50px;
             border: 1px solid black;
             background-color: white;
+        }
+
+        /* Get from db list */
+        #extContainer{
+            position: absolute;
+            margin-top: 25px;
+            margin-left: 100px;
+            display: 'none';
+            z-index:100;
         }
 
         /* table of data for objects is going to float on top of everything */
@@ -85,7 +95,7 @@
     <script src="/public/js/libs/OrbitControls.js"></script>
     <script src="/public/js/libs/stats.min.js"></script>
 
-        <!-- 
+    <!-- 
         load the scripts regarding ui:
         1. before application
         2. after the elements have been declared
@@ -118,7 +128,7 @@
         <button class="button" id="updateData" onclick="updateFunc()"> Update Objects</button>
         -->
         <table id="editTable"></table>
-        <form action = "/dbSend" method="post">
+        <form action="/dbSend" method="post">
             <textarea id="dbDataTA" name="details" style="display:none" required>null</textarea>
             <button class="button" id="sendDB" display="inline-block">Send to DB </a></button>
         </form>
@@ -137,7 +147,11 @@
     <!-- drawing functions for 3d -->
     <script src="/public/js/draw3dFunc.js"></script>
 
-    {{{body}}}
+    <div id="extContainer">
+        {{{body}}}
+    </div>
+
+
 </body>
 
 </html>

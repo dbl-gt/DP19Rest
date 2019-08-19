@@ -6,6 +6,7 @@ function stop3dFunc() {
 
 function init3dFunc() {
     // RENDERER
+    document.getElementById('extContainer').style.display='none'; 
     RENDERER = new THREE.WebGLRenderer({ antialias: true });
     RENDERER.setSize(500, 500);
 

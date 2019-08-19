@@ -1,12 +1,19 @@
 
     <script>
+        document.getElementById("extContainer").style.display='non'; 
         var decodeJson=decodeURIComponent("{{{encodedJSON}}}");
         var arr=decodeJson.split(";");
         OBJECT_ARRAY=[];
         for(let i=0; i<arr.length; i++){
             let arr2=arr[i].split(',');
-            let name=arr2[0];
+            let name;
+            if(i==0){
+                name=arr2[0].split('"')[1];
+            }else{
+                name=arr2[0];
+            }
             let x=parseFloat(arr2[1]);
+            if(isNaN(x) === true) continue;
             let y=parseFloat(arr2[2]);
             let l=parseFloat(arr2[3]);
             let w=parseFloat(arr2[4]);

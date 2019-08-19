@@ -135,7 +135,10 @@ function generateButtons(ele){
 // declared in index.html display table 
 // move objects in screen- 2d canvas
 function init2dWorldFunc(){
-    stop3dFunc(); // file : draw3dFunc.js //suppress 3d world 
+    //suppress x=>not part of main.handlebars - inside div #"extContainer"
+    document.getElementById("extContainer").style.diplay='none';
+    // file : draw3dFunc.js //suppress 3d world 
+    stop3dFunc(); 
     //expose 2d world
     document.getElementById("draw2dDiv").style.display='block';
 }
@@ -143,7 +146,10 @@ function init2dWorldFunc(){
 //
 //
 function init3dWorldFunc(){
-    document.getElementById('draw2dDiv').style.display='none'; //suppress 2d world
+    //suppress x=>not part of main.handlebars - inside div #"extContainer"
+    
+    //suppress 2d world
+    document.getElementById('draw2dDiv').style.display='none'; 
     //expose 3d world
     document.getElementById("draw3dDiv").style.display='block';
     init3dFunc(); // file: draw3dFunc.js
@@ -158,11 +164,16 @@ function showObjData(){
 //
 //
 function sendDB(){
-    var s="";
-    for(let i=0; i<OBJECT_ARRAY.length; i++){
-        s+=OBJECT_ARRAY[i].getString();
+    // dont send to db if there is nothing
+    if(OBJECT_ARRAY.length<1) return;
+    else{
+        var s="";
+        for(let i=0; i<OBJECT_ARRAY.length; i++){
+            s+=OBJECT_ARRAY[i].getString();
+        }
+        document.getElementById("dbDataTA").value=s;
     }
-    document.getElementById("dbDataTA").innerHTML=s;
+    
 }
 // end of button function file
 //

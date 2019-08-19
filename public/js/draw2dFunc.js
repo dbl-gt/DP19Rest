@@ -5,6 +5,8 @@
 CANVAS.addEventListener('mouseup', mouseUpListener, false);
 CANVAS.addEventListener('mousedown', mouseDownListener, false);
 CANVAS.addEventListener('mousemove', mouseMoveListener, false);
+CTX.fillStyle="rgb(255,255,255)";
+CTX.fillRect(0,0,CANVAS.width,CANVAS.height);
 setInterval(update2dCanvas, FPS);
 //
 //
@@ -12,6 +14,7 @@ function update2dCanvas(){
     let canv=CANVAS;
     let ctx=CTX;
     ctx.clearRect(0,0,canv.width,canv.height);
+    
     OBJECT_ARRAY.forEach(obj=>{obj.draw2d(ctx)});
     ctx.font="12px arial";
     ctx.fillStyle="rgba(100,100,100,0.5)";
@@ -53,7 +56,7 @@ function mouseUpListener(e){
     window.addEventListener('mouseup', e2=>{
         OBJECT_ARRAY.forEach(obj=>obj.selected=false);
     }, false);
-
+    updateFunc(); // file: buttonFunc.js ensure auto-update 
     if (e.preventDefault) {
         e.preventDefault();
     }
