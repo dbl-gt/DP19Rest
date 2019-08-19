@@ -62,9 +62,22 @@ app.get('/dbGet', (req,res)=>{
     console.log("get from db...");
     Data.find({})
     .then(data=>{
-        res.render("mainDrawing",{data: data});
+        console.log(data);
+        res.render("retrieveDB",{data: data});
     })
     .catch(err=>console.log(err));
+});
+
+app.get('/viewDB/:id', (req, res)=>{
+    Data.findOne({
+    _id:req.params.id
+    })
+    .then(data=>{
+        console.log("sending data for display: " + data);
+        res.render('mainDrawing',{
+            encodedJSON: encodeURIComponent(JSON.stringify(data))});
+    })
+    .catch(err => console.log(err));
 });
 
 app.get('/favicon.ico', (req, res)=>{
