@@ -73,9 +73,9 @@ app.get('/viewDB/:id', (req, res)=>{
     _id:req.params.id
     })
     .then(data=>{
-        console.log("sending data for display: " + data);
+        console.log("sending data for display: " + data.info);
         res.render('mainDrawing',{
-            encodedJSON: encodeURIComponent(JSON.stringify(data))});
+            encodedJSON: encodeURIComponent(JSON.stringify(data.info))});
     })
     .catch(err => console.log(err));
 });

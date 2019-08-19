@@ -1,3 +1,12 @@
+
+<script>
+    //suppress 2d world
+    document.getElementById('draw2dDiv').style.display='none'; 
+    //suppress 3d world
+    document.getElementById("draw3dDiv").style.display='none'; 
+</script>
+
+
 <h4> select data to display </h4>
 {{#each data}}
 <li><a style="font-size:15; font-family:times, serif;" href= '/viewDB/{{id}}'> <b>Display</b></a></li><br>
