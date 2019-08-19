@@ -5,16 +5,24 @@ const mongoose=require('mongoose');
 const methodOverride = require('method-override');
 const app=express();
 
-mongoose.connect('mongodb://localhost/dbTest')
-.then(()=> console.log("Mongo DB connected..."))
-.catch(err => console.log(err));
+// remote deployment
+process.env.PWD=process.cwd();
+
+// connect to remote db during prod or local db
+if(process.env.NODE_ENV==='production'){
+    mongoose.connect(
+        'mongodb://root:root123@ds263917.mlab.com:63917/fall19class'
+    ).then(()=> console.log("connected"))
+    .catch(err => console.log(err));
+}else{
+    mongoose.connect('mongodb://localhost/dbTest')
+    .then(()=> console.log("Mongo DB connected..."))
+    .catch(err => console.log(err));
+}
 
 //load the data model
 require('./models/Data');
 const Data=mongoose.model('data');
-
-// remote deployment
-process.env.PWD=process.cwd();
 
 // static files
 app.use('/public', express.static(process.env.PWD+'/public'));
@@ -54,7 +62,7 @@ app.get('/dbGet', (req,res)=>{
     console.log("get from db...");
     Data.find({})
     .then(data=>{
-        res.render("mainDrawing");
+        res.render("mainDrawing",{data: data});
     })
     .catch(err=>console.log(err));
 });
